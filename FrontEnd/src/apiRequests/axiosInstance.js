@@ -1,18 +1,21 @@
 import axios from "axios";
-
+const backEndUrl = "https://skygoalbackend-0lb3.onrender.com/api";
 export const axiosInstance = axios.create({
-    baseURL: "http://localhost:4000/api/",
-})
+  baseURL: backEndUrl,
+});
 
 // Add a request interceptor
- axiosInstance.interceptors.request.use((config) => {
+axiosInstance.interceptors.request.use(
+  (config) => {
     // Add token to headers if available
     const token = localStorage.getItem("token");
     if (token) {
-        config.headers.Authorization = `Bearer ${token}`;
+      config.headers.Authorization = `Bearer ${token}`;
     }
     return config;
-}, (error) => {
+  },
+  (error) => {
     // Handle request errors
     return Promise.reject(error);
-});
+  }
+);

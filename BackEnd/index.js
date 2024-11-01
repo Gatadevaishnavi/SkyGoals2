@@ -9,9 +9,11 @@ const port = process.env.PORT || 5000;
 
 // to convert json
 app.use(express.json());
-app.use(cors({
-  origin : process.env.FRONT_END_URL,
-}));
+app.use(
+  cors({
+    origin: process.env.FRONT_END_URL,
+  })
+);
 
 //routes middleware
 app.use("/api/users/", authRoutes);

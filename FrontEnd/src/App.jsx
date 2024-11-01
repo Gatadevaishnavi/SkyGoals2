@@ -45,7 +45,7 @@ const App = () => {
                                 Login
                             </Button>
                             <Button color="inherit" component={Link} to="/">
-                                SignUP
+                                Sign UP
                             </Button>
                         </>
                     )}
